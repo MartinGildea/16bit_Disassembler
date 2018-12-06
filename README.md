@@ -11,6 +11,9 @@ The program must be run with an argument specifying which way memory should be l
 2. '-c': Prompts the user to enter input for each line of memory. Will stop taking in memory when the user enters 'exit'.
 3. '-f': Prompts the user to enter a file name (explicitly) and loads memory from that file.
 
+The program will then run through memory executing each command it finds according to the first 4 bits of memory (the opcode). If the opcode requires a value to operate on it will either use the 16bit accumulator, the 16bit value stored at the memory address located at the place denoted by final 12 bits of memory(the operand) or both.
+
+It will continue looping through memory until a 'halt' command is reached or the program counter exceeds the number of words in memory and the program will crash. (The program counter exceeding this value is considered an error and this is intentional. Correct error handling is yet to be implemented. Alternatively the program may loop infintely if the correct series of opcodes are used.
 
 ## TODO
 In order to improve my skills in C I would like to implement the following features:
