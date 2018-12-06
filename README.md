@@ -11,7 +11,7 @@ I recieved full marks for the exercise.
 
 ## TODO
 In order to improve my skills in C I would like to implement the following features:
-1. Full regester functionality in accordance with a real world disassembler such as MIPS.
+1. Full register functionality in accordance with a real world disassembler such as MIPS.
 2. Modify the program to use a of 'hardware' struct that has the following properties:
 	- A memory array containing 4096 'word' structs where each word has a 4bit 'opcode' bitfield and a 12bit 'operand' bitfield.
 	- A processor struct implementing all registers as bitfields.
