@@ -20,3 +20,5 @@ In order to improve my skills in C I would like to implement the following featu
 
 These improvements were outside the scope of the assignment, but I feel they would be the more efficient
 and industrial way to do things.
+
+Task '2' is currently in progress. I have created a hardware header file and an initialiser function.
