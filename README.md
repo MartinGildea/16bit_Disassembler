@@ -6,7 +6,10 @@ The aim of the exercise was to implement & test a disassembler in C.
 I recieved full marks for the exercise.
 
 ## User Guide
-
+The program must be run with an argument specifying which way memory should be loaded. This can be one of the following options:
+1. '-d': Loads default memory and requires no further input from the user. The default memory will run through each 'opcode' at least once.
+2. '-c': Prompts the user to enter input for each line of memory. Will stop taking in memory when the user enters 'exit'.
+3. '-f': Prompts the user to enter a file name (explicitly) and loads memory from that file.
 
 
 ## TODO
