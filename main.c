@@ -1,6 +1,7 @@
 /**************************************************************************
  * Assessment Title: ACE 3
  * Number of Submitted C Files: 5(3 .c files and 2 .h files.)
+ * (Added 1 additional file since submission - hardware)
  * Date: 23/11/18
  **************************************************************************/
 
