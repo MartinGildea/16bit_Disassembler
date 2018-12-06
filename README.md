@@ -1,6 +1,6 @@
 # 16 Bit Computer Emulator
 
-The 16 Bit Computer Emulator was the third programming assignment for the class CS210 - Computer Systems and Architecture.
+The 16 Bit Disassembler was  was the third programming assignment for the class CS210 - Computer Systems and Architecture.
 The aim of the exercise was to implement & test a disassembler in C.
 
 I recieved full marks for the exercise.
