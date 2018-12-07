@@ -62,7 +62,7 @@ void get_default_memory(char memory[4096][17]) {
  *
  *  returns: A char array representing a binary string in twos complement form.
  */
-char * int_to_twos_comp(int int_value, int number_of_bits) { // Combine the other binary conversion functions together
+char * int_to_twos_comp(int int_value, int number_of_bits) {
     return binary_to_twoscomp(int_to_unsigned_binary(int_value, number_of_bits));
 }
 
@@ -70,7 +70,10 @@ char * int_to_twos_comp(int int_value, int number_of_bits) { // Combine the othe
 /*
  * Function:  int_to_unsigned_binary
  * --------------------
- * Takes in an integer value and converts it to an unsigned binary string.
+ *  Takes in an integer value and converts it to an unsigned binary string.
+ *  Continually right shifts the int_value in a loop from the bit size of the desired binary string to 0.
+ *  If this value is odd, we know the current right most bit is a 1 and we can append a 1 to the binary string.
+ *  Else we append a 0.
  *
  *  parameters: int int_value: The decimal value you are converting to binary.
  *              int number_of_bits: The number of bits in the desired binary string.
@@ -78,18 +81,17 @@ char * int_to_twos_comp(int int_value, int number_of_bits) { // Combine the othe
  *  returns: A char array representing an unsigned binary string.
  */
 char * int_to_unsigned_binary(int int_value, int number_of_bits) {
-    int d;
-    char *return_value;
-
+    int odd_check;
+    char * return_value;
     return_value = (char*)malloc(number_of_bits+1);
 
     int count = 0;
     for (int i = number_of_bits-1; i >= 0 ; i--) {
-        d = int_value >> i;
-        if (d & 1){
-            *(return_value + count) = 1 + '0';
+        odd_check = int_value >> i;
+        if (odd_check & 1){
+            *(return_value + count) = '1';
         } else {
-            *(return_value + count) = 0 + '0';
+            *(return_value + count) = '0';
         }
         count++;
     }
@@ -109,8 +111,7 @@ char * int_to_unsigned_binary(int int_value, int number_of_bits) {
  */
 char * binary_to_twoscomp(char * unsigned_binary_string){
     int binary_size = strlen(unsigned_binary_string);
-    char * twos_compliment = (char*)malloc(binary_size+1);
-    twos_compliment = unsigned_binary_string;
+    char * twos_compliment = unsigned_binary_string;
 
     int is_negative = 0;
     if (*unsigned_binary_string == '1') {
