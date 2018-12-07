@@ -240,6 +240,7 @@ void display_memory(char memory[4096][17]) {
 }
 
 
+// TODO Implement error validation
 /*
  * Function:  user_input
  * --------------------
@@ -249,24 +250,18 @@ void display_memory(char memory[4096][17]) {
  *
  *  returns: A modified memory array containing the value inputted by the user.
  */
-void user_input(char memory[4096][17]) {
+void user_input(char memory[4096][17]){
     char input[17] = "";
     int line = 0;
-    while (line < 4096) {
+    while (line < 4096){
         printf("%d.\n", line);
+        if(!strcmp(fgets(input,17,stdin), "exit\n")) break;
+        memcpy(memory[line], input, 16);
         fgets(input,17,stdin);
-        if(!strcmp(fgets(input,16,stdin), "exit\n")) break;
-        else if (input_checker(input) == 1) {
-            printf("Error input has to be 16 bit binary number, Enter Again:");
-        }
-        else{
-            strcpy(memory[line], input);
-            line++;
-        }
+        line++;
     }
-
-    while (line < 4096) {
-        strcpy(memory[line],"0000000000000000");
+    while (line < 4096){
+        memcpy(memory[line],"0000000000000000", 16);
         line++;
     }
     printf("Memory Loaded Successfully\n");
@@ -289,6 +284,9 @@ int input_checker (char input[17]) {
     for(int i = 0; i < 16; i++) {
         if(input[i] != '0' && input[i] != '1') {
             check = 1;
+            printf("%s", input);
+            printf("%c", input[i]);
+            printf("i at check fail: %d\n", i);
             return check;
         }
     }
@@ -340,7 +338,23 @@ int load_from_file(char memory[4096][17], char filename[]) {
 }
 
 
-// Binary to Assembly
+
+// TODO This was a function required by the brief of the assignment. There had to be a single function that converts
+// TODO binary to assembly. There are too many imports and the function can likely be split into several functions
+// TODO to improve modularity and readability.
+/*
+ * Function:  binary_to_assembly
+ * --------------------
+ *  The binary_to_assembly function decodes the opcode and prints the opcode statement in assembly.
+ *  It copies the contents at address MAR to the MBR if an operand is used, then executes the instruction as per the brief.
+ *  Each step of the brief is denoted in comments.
+ *
+ *  parameters: char memory[4096][17]: The memory of the ACE3 Computer.
+ *              all registers
+ *
+ *  returns: An integer value denoting whether the file has been successfully read or not.
+ *           A value of 1 indicates it has failed. A value of 0 indicates a success.
+ */
 int binary_to_assembly(char * ir, char * mbr, char memory[4096][17], char * mar, char * ac, char * pc, char * InREG, char * OutREG) {
     int opcode_int = 0;
     char opcode[5] = "";
