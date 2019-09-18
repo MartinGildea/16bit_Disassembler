@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
                     break;
                 }
 
-                default:  // Print error saying an input argument is required
+                default:  
                     printf("Error: Incorrect input argument entered. Please use one of the following:\n"
                            "-d:\tLoad the default memory.\n"
                            "-c:\tRead the memory from the console.\n"
@@ -126,8 +126,6 @@ int fetch_decode_execute(char memory[4096][17]){
     return 0;
 }
 
-// TODO Change processor/memory to a struct format. This will eventually initialise the memory and all registers
-// TODO to start at 0
 void computer_initializer(){
     hardware computer = { .ac = "0000000000000000",
             .ir = "0000000000000000",
