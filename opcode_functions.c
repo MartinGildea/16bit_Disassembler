@@ -65,27 +65,27 @@ void jump(char * pc, char * operand) {
 
 /* 9 1001 Right Logical Shift X*/
 void shift_right_logical(char * binary_string, int shift_amount) {
-    for (int i = 0; i<shift_amount; ++i) {                 // For number of times digits should be shifted
-        for (int j = strlen(binary_string)-1; j>0; --j) {  // For every digit minus the one at start
-            *(binary_string+j) = *(binary_string+(j-1));   // Assign every character to the char to its left
+    for (int i = 0; i<shift_amount; ++i) {                 
+        for (int j = strlen(binary_string)-1; j>0; --j) {  
+            *(binary_string+j) = *(binary_string+(j-1));  
         }
     }
 
-    for (int i = 0; i<(shift_amount); ++i) {               // For number of times digits should be shifted
-        *(binary_string+i) = '0';                          // Fill voided characters with 0
+    for (int i = 0; i<(shift_amount); ++i) {              
+        *(binary_string+i) = '0';                         
     }
 }
 
 
 /* 10 1010 Left logical Shift X */
 void shift_left_logical(char * binary_string, int shift_amount) {
-    for (int i = 0; i<shift_amount; ++i) {                                                   // For number of times digits should be shifted
-        for (int j = 1; j<=strlen(binary_string)-1; ++j) {                                   // For every digit minus the one at end
-            *(binary_string+(j-1)) = *(binary_string+j);                                     // Assign every character to the char to its right
+    for (int i = 0; i<shift_amount; ++i) {                                                  
+        for (int j = 1; j<=strlen(binary_string)-1; ++j) {                                   
+            *(binary_string+(j-1)) = *(binary_string+j);                                     
         }
     }
-    for (int i = strlen(binary_string)-1; i>((strlen(binary_string)-1)-shift_amount); --i) { // For number of times digits should be shifted
-        *(binary_string+i) = '0';                                                            // Fill voided characters with 0
+    for (int i = strlen(binary_string)-1; i>((strlen(binary_string)-1)-shift_amount); --i) { 
+        *(binary_string+i) = '0';                                                           
     }
 }
 
@@ -114,7 +114,7 @@ void clear(char * ac) {
 
 /* 14 1110 Flip AC */
 void flip(char* str) {
-    for (int i = 0; i < strlen(str); i++) {     // Flip everything until least significant bit
+    for (int i = 0; i < strlen(str); i++) {    
         if (*(str+i) == '0'){
             *(str+i) = '1';
         } else {
