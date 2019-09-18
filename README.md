@@ -16,9 +16,9 @@ The program will then run through memory executing each command it finds accordi
 It will continue looping through memory until a 'halt' command is reached or the program counter exceeds the number of words in memory and the program will crash. (The program counter exceeding this value is considered an error and this is intentional. Correct error handling is yet to be implemented.) Alternatively the program may loop infintely if the correct series of opcodes are used.
 
 ## TODO
-In order to improve my skills in C I would like to implement the following features:
+In order to improve the project the following additions could be added:
 1. Full register functionality in accordance with a real world disassembler such as MIPS.
-2. Modify the program to use a of 'hardware' struct that has the following properties:
+2. Modify the program to use a 'hardware' struct that has the following properties:
 	- A memory array containing 4096 'word' structs where each word has a 4bit 'opcode' bitfield and a 12bit 'operand' bitfield.
 	- A processor struct implementing all registers as bitfields.
 	
@@ -26,5 +26,3 @@ In order to improve my skills in C I would like to implement the following featu
 
 These improvements were outside the scope of the assignment, but I feel they would be the more efficient
 and industrial way to do things.
-
-Task '2' is currently in progress. I have created a hardware header file and an initialiser function.
